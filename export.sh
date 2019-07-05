@@ -2,15 +2,15 @@
 
 set -euo pipefail
 
-declare -r out="docs/cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
+declare -r out="cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
 
 mkdir -p docs/ build/
 
 pdflatex -interaction nonstopmode -output-directory build/ cv.tex </dev/null
 
-cp build/cv.pdf "$out"
+cp build/cv.pdf "docs/$out"
 
-ln -srf "$out" docs/cv.pdf
+ln -sf "$out" docs/cv.pdf
 
 cat > docs/index.html <<EOF
 <!doctype html>
