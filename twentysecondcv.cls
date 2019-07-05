@@ -61,7 +61,7 @@
 	\settowidth{\SectionTitleLength}{\huge #1 }% Calculate the width of the section title
 	\addtolength\TotalSectionLength{-\SectionTitleLength}% Subtract the section title width from the total width
 	\addtolength\TotalSectionLength{-2.22221pt}% Modifier to remove overfull box warning
-	\vspace{8pt}% Whitespace before the section title
+	\vspace{6pt}% Whitespace before the section title
 	{\color{black!80} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}% Print the title and auto-width rule
 }
 
@@ -109,7 +109,7 @@
 
 \newcommand{\makeprofile}{
 	\begin{tikzpicture}[remember picture,overlay]
-   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=8cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=6.6cm, minimum height=\paperheight+1cm] (box) at (-4cm,0.5cm){};
 	\end{tikzpicture}
 
 	%------------------------------------------------
@@ -183,17 +183,9 @@
 	{%
 		\round{#1}{
 			\ifcase\value{colorCounter}%
-			maingray\or%
 			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
- 			maingray\or%
 			mainblue\else%
-			maingray\fi%
+			mainblue\fi%
 		}%
 	}%
 	\stepcounter{colorCounter}%
@@ -221,36 +213,28 @@
 
 % New environment for the long list
 \newenvironment{twenty}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}%
 }{%
 	\end{tabular*}
 }
 
 \newcommand{\twentyitem}[4]{%
 	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#2}%
+		\mbox{\textbf{#2}}%
 		\hfill%
-		{\footnotesize#3}\\%
-		#4\vspace{\parsep}%
-	}\\
-}
-
-%----------------------------------------------------------------------------------------
-%	 SMALL LIST ENVIRONMENT
-%----------------------------------------------------------------------------------------
-
-\setlength{\tabcolsep}{0pt}
-
-% New environment for the small list
-\newenvironment{twentyshort}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-	\end{tabular*}
-}
-
-\newcommand{\twentyitemshort}[2]{%
-	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#2}%
+		\mbox{\footnotesize#3}%
+		\ifthenelse{\equal{#4}{}}{%
+			\\%
+			\par%
+		}{%
+			\vspace{0.3em}%
+			\\%
+			\parbox[l]{0.83\textwidth}{%
+				\setlength{\parskip}{0.25em}%
+				#4%
+				\\\par%
+			}%
+		}%
 	}\\
 }
 
@@ -258,6 +242,6 @@
 %	 MARGINS AND LINKS
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[left=7.6cm,top=0.1cm,right=1cm,bottom=0.2cm,nohead,nofoot]{geometry}
+\RequirePackage[left=7.5cm,top=0.1cm,right=1cm,bottom=0.2cm,nohead,nofoot]{geometry}
 
 \RequirePackage{hyperref}
