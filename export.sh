@@ -4,13 +4,13 @@ set -euo pipefail
 
 declare -r out="docs/cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
 
-mkdir -p docs/
+mkdir -p docs/ build/
 
-pdflatex -output-directory build/ cv.tex
+pdflatex -interaction nonstopmode -output-directory build/ cv.tex </dev/null
 
 cp build/cv.pdf "$out"
 
-ln -srf docs/cv.pdf "$out"
+ln -srf "$out" docs/cv.pdf
 
 cat > docs/index.html <<EOF
 <!doctype html>
