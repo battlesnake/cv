@@ -2,15 +2,17 @@
 
 set -euo pipefail
 
-declare -r out="publish/cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
+declare -r out="docs/cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
 
-mkdir -p build/
+mkdir -p docs/
 
 pdflatex -output-directory build/ cv.tex
 
 cp build/cv.pdf "$out"
 
-cat > index.html <<EOF
+ln -srf docs/cv.pdf "$out"
+
+cat > docs/index.html <<EOF
 <!doctype html>
 <html>
 	<head>
