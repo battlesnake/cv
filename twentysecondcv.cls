@@ -18,6 +18,7 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
+\RequirePackage{fontawesome5}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -66,7 +67,6 @@
 }
 
 % Define custom commands for CV info
-\newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
@@ -75,22 +75,36 @@
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
+\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
+\newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
 
 % Command for printing the contact information icons
-\newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
+\newcommand*\icon[1]{\tikz[baseline=-0.5ex]{\node[shape=circle,draw,inner sep=1pt, minimum size=20pt, fill=mainblue,mainblue,text=white] (char) {\large#1};}}
 
+\newcommand\clearskills[0]{
 % Command for printing skill progress bars
-\newcommand\skills[1]{ 
-	\renewcommand{\skills}{
-		\begin{tikzpicture}
-			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6*0.94,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y*0.94,\i+0.4);
-				\node [above right] at (0,\i+0.4) {\x};
-			}
-		\end{tikzpicture}
+	\renewcommand\skills[1]{ 
+		\renewcommand{\skills}{
+			\begin{tikzpicture}
+				\foreach [count=\i] \x/\y in {##1}{
+					\draw[fill=maingray,maingray] (0,\i) rectangle (6*0.94,\i+0.4);
+					\draw[fill=white,mainblue](0,\i) rectangle (\y*0.94,\i+0.4);
+					\node [above right] at (0,\i+0.4) {\x};
+				}
+			\end{tikzpicture}
+		}
 	}
 }
+\newcommand\skills[1]{}
+\clearskills
+
+\newcommand\setskills[1]{\clearskills\skills{#1}}
+
+\newcommand\skillstitle[0]{Skills}
+\newcommand\setskillstitle[1]{%
+	\renewcommand\skillstitle[0]{#1}%
+}
+
 
 % Command for printing skills text
 \newcommand\skillstext[1]{ 
@@ -138,12 +152,13 @@
 		%------------------------------------------------
 
 		\renewcommand{\arraystretch}{1.6}
-		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-			\ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\Info}} & \cvdate \vspace{3pt}\\}
-			\ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\Letter}} & \cvaddress \vspace{3pt}\\}
-			\ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\Telefon}} & \cvnumberphone \vspace{3pt}\\}
-			\ifthenelse{\equal{\cvsite}{}}{}{\textsc{\Large\icon{\Mundus}} & \cvsite \vspace{3pt}\\}
-			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail} \vspace{3pt}}
+		\begin{tabular}{p{0.5cm} @{\hskip 0.4cm}p{5cm}}
+			\ifthenelse{\equal{\cvaddress}{}}{}{\icon{\faMapMarker*}&\cvaddress\vspace{5pt}\\}
+			\ifthenelse{\equal{\cvnumberphone}{}}{}{\icon{\faPhone}&\cvnumberphone\vspace{5pt}\\}
+			\ifthenelse{\equal{\cvsite}{}}{}{\icon{\faGlobeEurope}&\cvsite\vspace{5pt}\\}
+			\ifthenelse{\equal{\cvmail}{}}{}{\icon{\faEnvelope}&\href{mailto:\cvmail}{\cvmail}\vspace{5pt}\\}
+			\ifthenelse{\equal{\cvgithub}{}}{}{\icon{\faGithub}&\href{https://github.com/\cvgithub}{github.com/\cvgithub}\vspace{5pt}\\}
+			\ifthenelse{\equal{\cvlinkedin}{}}{}{\icon{\faLinkedin}&\href{https://linkedin.com/in/\cvlinkedin}{linkedin.com/in/\cvlinkedin}\vspace{5pt}\\}
 		\end{tabular}
 
 		%------------------------------------------------
@@ -157,7 +172,7 @@
 
 		%------------------------------------------------
 
-		\profilesection{Skills}
+		\profilesection{\skillstitle}
 
 		\skills
 		%\skillstext

@@ -25,7 +25,7 @@
 
 % Photo, logos
 \usepackage{graphicx}
-\graphicspath{ {./img/} }
+\graphicspath{{./img/}}
 
 % Inline item within list
 \newcommand{\iitem}[0]{\newline\-\enspace$\blacktriangleright$\enspace}
@@ -36,14 +36,15 @@
 
 \profilepic{me.jpg}
 
-\cvname{\href{https://www.linkedin.com/in/photonicist}{Mark K Cowan}}
-\cvjobtitle{\href{https://github.com/battlesnake}{Software Engineer}}
+\cvname{Mark K Cowan}
+\cvjobtitle{Software Engineer}
 
-\cvdate{}
 \cvaddress{Tallinn, Estonia}
 \cvnumberphone{}
 \cvsite{\href{https://hackology.co.uk}{hackology.co.uk}}
 \cvmail{mark@battlesnake.co.uk}
+\cvgithub{battlesnake}
+\cvlinkedin{photonicist}
 
 %----------------------------------------------------------------------------------------
 
@@ -56,23 +57,21 @@
 \aboutme{}
 
 %----------------------------------------------------------------------------------------
-%	 SIDEBAR: SKILLS
+%	 FIRST PAGE
 %----------------------------------------------------------------------------------------
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{%
-	{Counter-strike/2.2},%
-	{StarCraft II/3.2},%
-	{Squash/5.0},%
-	{Football/1.4},%
-	{French/0.1},%
+\setskills{%
+	{Presenting/3.9},%
+	{Spanish/0.02},%
+	{French/0.2},%
 	{Optics/2.8},%
 	{Analog electronics/1.0},%
 	{Digital electronics/1.5},%
 	{Embedded systems/4.8},%
-	{JavaScript, Node.js, TypeScript/3},%
-	{Python/2.4},%
-	{Front-end (HTML5 + CSS3)/3.2},%
+	{JavaScript, TypeScript, Node.js/3},%
+	{Python/2.0},%
+	{Front-end/3.2},%
 	{Bash + GNU coreutils/4.3},%
 	{C\#/3.7},%
 	{Java/4.8},%
@@ -81,15 +80,11 @@
 	{C++/5.8}%
 }
 
-%----------------------------------------------------------------------------------------
-%	 FIRST PAGE
-%----------------------------------------------------------------------------------------
-
-\makeprofile % Print the sidebar
+\makeprofile
 
 \section{Experience}
 
-\newcommand{\brand}[2]{\raisebox{-2pt}{\includegraphics[height=10pt]{#1}} \enspace #2 \vspace{1pt}}
+\newcommand{\brand}[2]{\raisebox{-2pt}{\includegraphics[height=10pt]{#1}}\enspace#2\vspace{1pt}}
 
 \newcommand{\opencosmos}[0]{\brand{oc.png}{Open Cosmos}}
 \newcommand{\entrepreneurfirst}[0]{\brand{ef.png}{Entrepreneur First}}
@@ -99,72 +94,68 @@
 \newcommand{\lrgs}[0]{\brand{lrgs.png}{Lancaster Royal Grammar School}}
 
 \begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2018-2018}{%
-		Lead flight software engineer}{\opencosmos}{Designing the next-generation flight software (C/Kotlin), to be flown on hundreds of mass-produced spacecraft. %
+	\twentyitem{2018--2018}{%
+		Lead flight software engineer}{\opencosmos}{Designing the next-generation flight software (C/Kotlin), to be flown on hundreds of mass-produced spacecraft.%
 		\par%
-		Training others in the design and in associated computer-science and operating-systems theory, so that they can implement it and maintain it. %
+		Training others in the design and in associated computer-science and operating-systems theory, so that they can implement it and maintain it.%
 	}
-	\twentyitem{2017-2018}{Head of software}{\opencosmos}{%
-		Building \& growing a team of skilled software engineers, aerospace engineers \& physicists. %
+	\twentyitem{2017--2018}{Head of software}{\opencosmos}{%
+		Building and growing a team of skilled software engineers, aerospace engineers \& physicists.%
 		\par%
-		Headhunting, approaching, interviewing, testing -- the whole lot. %
+		Headhunting, approaching, interviewing, testing --- the whole lot.%
 		\par%
-		Managing resource-allocation and acquisition across projects. %
+		Managing resource-allocation and acquisition across projects.%
 		\par%
-		Training/teaching the team: %
-			\iitem Object-orientated design patterns (gang-of-four) %
-			\iitem Algorithms \& data-structures %
-			\iitem Concurrency (distributed/parallel/asynchronous styles) %
-			\iitem Functional programming basics (for SQL, react, lodash, etc) %
-			\iitem Networking %
-			\iitem POSIX/Linux %
-			\iitem Gitlab/DevOps %
-			\iitem Real-time (latency-constrained) programming %
-		\par %
-		Helping the infrastructure/ops team to replace my original ``startup-grade'' infrastructure with a robust and resilient micro-service architecture, using tools including: %
-			\iitem Kubernetes %
-			\iitem RabbitMQ %
-			\iitem Redis %
+		Training/teaching the team:%
+			\iitem Algorithms \& data-structures%
+			\iitem Operating systems (schedulers, filesystems,  networking, \ldots)%
+			\iitem Concurrency (distributed/parallel/asynchronous styles)%
+			\iitem Object-orientated design patterns (gang-of-four)%
+			\iitem Functional programming basics (for SQL, redux, lodash, \ldots)%
+			\iitem POSIX/Linux%
+			\iitem Gitlab/DevOps%
+			\iitem Real-time (latency-constrained) programming%
+			\iitem Optimisation (data-structures, dynamic programming, \ldots)%
+		\par%
+		Helping the infrastructure/ops team to replace my original ``startup-grade'' infrastructure with a robust and resilient micro-service architecture, using tools including:%
+			\iitem Kubernetes%
+			\iitem RabbitMQ%
+			\iitem Redis%
+		\par%
+		Developing:%
+			\iitem A lightweight (low-RAM) flash filesystem%
+			\iitem Java/Swing application for managing satellite dev. kits%
+			\iitem Devicetree for our own in-house designed Linux boards%
 	}
-	\twentyitem{2015-2016}{%
-		Software \& payload engineer}{\opencosmos}{Developing: %
-			\iitem Flight software (C / FreeRTOS / AVR32) %
-			\iitem Mission-control software (C) %
-			\iitem Radio control software (C++ / SDR) %
-			\iitem Radio modulator/demodulator DSP software (C) %
-			\iitem Cloud infrastructure (Docker / DigitalOcean) %
-%			\iitem Machine-to-machine communications (ZeroMQ), %
-			\iitem Web app (AngularJS / TypeScript / Node.js / PostgreSQL) %
-			\iitem Mission simulator (Java / Maven / Gradle) %
-			\iitem Development kits (Das U-boot / Linux / systemd / coreutils) %
+	\twentyitem{2015--2016}{Software \& payload engineer}{\opencosmos}{%
+		Developing:%
+			\iitem Flight software (C / FreeRTOS / AVR32)%
+			\iitem Mission-control software (C)%
+			\iitem Radio control software (C++ / SDR)%
+			\iitem Radio modulator/demodulator DSP software (C)%
+			\iitem Cloud infrastructure (Docker / DigitalOcean)%
+			\iitem Machine-to-machine communications (ZeroMQ)%
+			\iitem Web app (AngularJS / TypeScript / Node.js / PostgreSQL)%
+			\iitem Mission simulator (Java / Maven / Gradle)%
+			\iitem Development kits (Das U-boot / Linux / systemd / coreutils)%
+			\iitem Test electronics (Kicad)%
 	}
-	\twentyitem{2015-2015}{Entrepreneur in residence}{\entrepreneurfirst}{%
-		Invited onto Entrepreneur First cohort \#5, from where I saw the start of Open Cosmos, which I joined a few months later. %
+	\twentyitem{2015--2015}{Entrepreneur in residence}{\entrepreneurfirst}{%
+		Invited onto Entrepreneur First cohort \#5, from where I saw the start of Open Cosmos, which I joined a few months later.%
 	}
-	\twentyitem{2014-2015}{Front-end developer}{\eestirr}{%
+	\twentyitem{2014--2015}{Front-end developer}{\eestirr}{%
 		Development and maintenance of widgets such as the homepage schedule browser and the live-stream viewer.	
-		\par %
-		Using HTML5, CSS3, JS, C\#, .NET MVC4. %
+		\par%
+		Using HTML5, CSS3, JS, C\#, .NET MVC4.%
 	}
-	\twentyitem{2012-2013}{Entrepreneur}{%
-		\textit{Various freelance jobs and short-lived startups} %
+	\twentyitem{2012--2013}{Entrepreneur}{%
+		\textit{Various freelance jobs and short-lived startups}%
 	}{}
-	\twentyitem{2012-2012}{Lab demonstrator}{\uomanc}{%
+	\twentyitem{2012--2012}{Lab demonstrator}{\uomanc}{%
 		Teaching and supervising laboratory projects for BSc students, involving real-time tomographic imaging of mixing processes.%
 	}
-	\twentyitem{2006-2011}{Head coach / coach / assistant coach}{\textit{Various squash clubs}}{}
+	\twentyitem{2006--2011}{Head coach / coach / assistant coach}{\textit{Various squash clubs}}{}
 	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
-\end{twenty}
-
-\section{Other}
-
-\begin{twenty} % Environment for a short list with no descriptions
-	\twentyitem{2016}{Patent}{GB201603920A}{%
-		Apparatus and method for satellite payload development.%
-	}
-	\twentyitem{2016}{Hackathon}{ActInSpace @ Tallinn}{%
-		Won fast-track to Prototron accelerator with lunar agriculture concept.%
-	}
 \end{twenty}
 
 %----------------------------------------------------------------------------------------
@@ -172,7 +163,22 @@
 %----------------------------------------------------------------------------------------
 
 \newpage
-\makeprofile % Print the sidebar
+
+\setskillstitle{More skills}
+
+\setskills{%
+	{Sense of humour/4.9},%
+	{Piano/0.4},%
+	{Guitar/3.4},%
+	{Football/1.4},%
+	{Music tech/2.0},%
+	{Super Hexagon/1.8},%
+	{Counter-strike/2.8},%
+	{StarCraft II/3.5},%
+	{Squash/5.5}%
+}
+
+\makeprofile
 
 %----------------------------------------------------------------------------------------
 %	 EDUCATION
@@ -181,72 +187,167 @@
 \section{Education}
 
 \begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2013-2013}{Machine Learning}{Coursera}{%
-		Andrew Ng's course on Coursera, 100\% score. %
+	\twentyitem{2013--2013}{Machine Learning}{Coursera}{%
+		Andrew Ng's course on Coursera, 100\% score.%
 	}
-	\twentyitem{2011-2013}{PhD Chem. Eng. \& Analytical Sci.}{\uomanc}{%
-		I taught a lab project involving real-time tomographic imaging of mixing processes.  I left the PhD during 2nd year, as rate of progress was too slow for my liking. %
-		\par %
-		I took several extra taught courses including: %
-			\iitem COMSOL Multiphysics %
-			\iitem NMR spectroscopy %
-			\iitem OpenCL %
-			\iitem OpenACC %
-			\iitem OpenMP %
-			\iitem MPI %
-			\iitem Intel Parallel Studio XE %
+	\twentyitem{2011--2013}{PhD Chem. Eng. \& Analytical Sci.}{\uomanc}{%
+		I taught a lab project involving real-time tomographic imaging of mixing processes.%
+		I left the PhD during 2nd year, as rate of progress was too slow for my liking.%
+		\par%
+		I took several extra taught courses including:%
+			\iitem COMSOL Multiphysics%
+			\iitem NMR spectroscopy%
+			\iitem OpenCL%
+			\iitem OpenACC%
+			\iitem OpenMP%
+			\iitem MPI%
+			\iitem Intel Parallel Studio XE%
 	}
-	\twentyitem{2010-2011}{MSc Photon Science}{\uomanc}{%
-		Distinction in: %
-			\iitem Holography and imaging %
-			\iitem Optical instruments %
-			\iitem Soft-matter physics %
-		\par %
-		Merit in: %
-			\iitem Semiconductor quantum structures, %
-			\iitem Laser technology %
-			\iitem Laser photomedicine %
-			\iitem Lasers and photonics %
-			\iitem Soft-matter physics %
-		\par %
-		I was elected as representative for the course. %
-		\par %
-		I was elected as treasurer for the post-graduate society. %
+	\twentyitem{2010--2011}{MSc Photon Science}{\uomanc}{%
+		Distinction in:%
+			\iitem Holography and imaging%
+			\iitem Optical instruments%
+			\iitem Soft-matter physics%
+		\par%
+		Merit in:%
+			\iitem Semiconductor quantum structures,%
+			\iitem Laser technology%
+			\iitem Laser photomedicine%
+			\iitem Lasers and photonics%
+			\iitem Soft-matter physics%
+		\par%
+		I was elected as representative for the course.%
+		\par%
+		I was elected as treasurer for the post-graduate society.%
 	}
-	\twentyitem{2007-2010}{BSc (Honours) Maths and Physics}{\uolsd}{%
-		First class in: %
-			\iitem Advanced quantum mechanics %
-			\iitem Medical imaging %
-			\iitem Calculus and mathematical analysis %
-			\iitem Modelling with differential equations %
-			\iitem Intro to music technology %
-		\par %
-		Upper second-class includes (non-exhaustive): %
-			\iitem Nuclear physics \& energy %
-			\iitem Advanced mathematical methods %
-			\iitem Further linear algebra %
-			\iitem Project (distributed computer simulation) %
-		\par %
-		I represented the university nationally at: %
-			\iitem Squash %
-			\iitem Aikido %
-			\iitem Korfball %
-			\iitem Tenpin bowling %
+	\twentyitem{2007--2010}{BSc (Honours) Maths and Physics}{\uolsd}{%
+		First class in:%
+			\iitem Advanced quantum mechanics%
+			\iitem Medical imaging%
+			\iitem Calculus and mathematical analysis%
+			\iitem Modelling with differential equations%
+			\iitem Intro to music technology%
+		\par%
+		Upper second-class includes (non-exhaustive):%
+			\iitem Nuclear physics \& energy%
+			\iitem Advanced mathematical methods%
+			\iitem Further linear algebra%
+			\iitem Project (distributed computer simulation)%
+		\par%
+		I represented the university nationally at:%
+			\iitem Squash%
+			\iitem Shodokan Aikido%
+			\iitem Korfball%
+			\iitem Tenpin bowling%
 	}
-	\twentyitem{2000-2007}{High school / Sixth form}{\lrgs}{%
-		Advanced (A) level in: %
-			\iitem Maths %
-			\iitem Further Maths %
-			\iitem Physics %
-			\iitem Chemistry %
-			\iitem Critical thinking %
-		\par %
-		Various awards including: %
-			\iitem Community Sports Leadership award %
-			\iitem "Distinction" in British Informatics Olympiad %
-			\iitem Consistent "Gold" awards in Mathematics Olympiad %
+	\twentyitem{2000--2007}{High school / Sixth form}{\lrgs}{%
+		Advanced (A) level in:%
+			\iitem Maths%
+			\iitem Further Maths%
+			\iitem Physics%
+			\iitem Chemistry%
+			\iitem Critical thinking%
+		\par%
+		Various awards including:%
+			\iitem Community Sports Leadership award%
+			\iitem "Distinction" in British Informatics Olympiad%
+			\iitem Consistent "Gold" awards in Mathematics Olympiad%
 	}
 	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+
+%----------------------------------------------------------------------------------------
+%	 NEXT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\setskillstitle{Want to learn}
+
+\setskills{%
+	{ASIC design \& development/2.5},%
+	{High-speed+density PCB design/3.5},%
+	{General relativity/2.8},%
+	{Eesti keel/3.5},%
+	{Elm/2.5},%
+	{Newer CSS features/3.2},%
+	{RF electronics/4.0},%
+	{FPGA + VHDL development/4.5},%
+	{Golang/3.5},%
+	{Rust/5.5}%
+}
+
+\makeprofile
+
+\section{Miscellaneous}
+
+\begin{twenty} % Environment for a short list with no descriptions
+	\twentyitem{---}{References}{LinkedIn}{%
+		References are immediately available on my%
+			\href{%
+				https://www.linkedin.com/in/photonicist/%
+			}{%
+				LinkedIn profile at https://www.linkedin.com/in/photonicist/%
+			}.%
+		\par%
+		See the ``Recommendations'' section on the profile.%
+	}
+	\twentyitem{---}{Patent}{GB201603920A}{%
+		Apparatus and method for satellite payload development.%
+	}
+	\twentyitem{2016}{Hackathon}{ActInSpace @ Tallinn}{%
+		Won fast-track to Prototron accelerator with lunar agriculture concept.%
+	}
+	\twentyitem{2018}{``Boom'' generative graphics/audio project}{JS+GLSL+Povray}{%
+		A HTML5 canvas + WebGL + GLSL + WebAudio project, to experiment with procedural generation.%
+		\par%
+		There's no real objective or meaning in this artwork, it's just for fun.%
+		\par%
+		It'll never be finished, I'm always adding layers and sections to it when I get inspiration.%
+	}
+	\twentyitem{2013}{``neural''}{CTAN/LaTeX}{%
+		A LaTeX package for drawing neural-network diagrams with Tikz.%
+		\par%
+		\href{https://github.com/battlesnake/neural}{%
+			100+$\bigstar$ on Github.%
+		}%
+	}
+	\twentyitem{2015}{``angular-chrome''}{Chrome/JS}{%
+		A Chrome extension for inspecting AngularJS contexts.
+		\par%
+		\href{https://chrome.google.com/webstore/detail/angular-chrome/fobloefinmdlpnanffefbpkkgflocmlp?hl=en-GB}{%
+			Available on the Chrome Store, but the URL is huge.%
+			If your PDF viewer supports hyperlinks then you can just click here to open it.%
+		}%
+		\par%
+		It has ten reviews averaging slightly over 4.3/5$\bigstar$ at the time of writing this.%
+		\par%
+		\href{https://github.com/battlesnake/angular-chrome}{%
+			On Github at github.com/battlesnake/angular-chrome.%
+		}%
+	}
+	\twentyitem{2015}{``gulp-google-webfonts''}{npm/node.js}{%
+		A node.js/gulp package for automatically downloading fonts from Google WebFonts during the build process, and auto-generating the relevant CSS.%
+		\par%
+		\href{https://www.npmjs.com/package/gulp-google-webfonts}{%
+			Consistently >1000 weekly downloads from npm at npmjs.com/package/gulp-google-webfonts.%
+		}%
+		\par%
+		\href{https://github.com/battlesnake/gulp-google-webfonts}{%
+			50+$\bigstar$ on Github at github.com/battlesnake/gulp-google-webfonts.%
+		}%
+		\par%
+		Used by BitWarden project among others.%
+	}
+	\twentyitem{2015}{``kaiu''}{C++}{%
+		A collection of interacting asynchronous and concurrent experiments in C++.%
+		\par%
+		Not used in production, nor should it as the heavy templated nature of this library means that compile times will explode massively.%
+		\par%
+		\href{https://github.com/battlesnake/kaiu}{%
+			On Github at github.com/battlesnake/kaiu.%
+		}%
+	}
 \end{twenty}
 
 %----------------------------------------------------------------------------------------

@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-declare -r out="cv_$(date -uIdate)_$(git rev-parse HEAD).pdf"
+nopreview=1 ./build.sh
 
-mkdir -p docs/ build/
+declare -r out="cv_$(date -uIsec)_$(git rev-parse HEAD).pdf"
 
-pdflatex -interaction nonstopmode -output-directory build/ cv.tex </dev/null
+mkdir -p docs/
 
 cp build/cv.pdf "docs/$out"
 
