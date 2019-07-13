@@ -29,6 +29,13 @@ cat > docs/index.html <<EOF
 		<link rel="icon" type="image/png" href="me.jpg">
 		<link rel="apple-touch-icon" href="me.jpg">
 		<link rel="shortcut icon" type="image/png" href="me.jpg">
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41777558-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-41777558-1');
+		</script>
 	</head>
 	<body>
 		<h1><a href="$out">Redirecting...</a></h1>
