@@ -63,21 +63,20 @@
 % Skill bar section, each skill must have a value between 0 an 6 (float)
 \setskills{%
 	{Presenting/3.9},%
-	{Spanish/0.02},%
-	{French/0.2},%
-	{Optics/2.8},%
+	{French/0.1},%
+	{Optics/1.7},%
 	{Analog electronics/1.0},%
-	{Digital electronics/1.5},%
+	{Digital electronics/2.2},%
 	{Embedded systems/4.8},%
-	{JavaScript, TypeScript, Node.js/3},%
-	{Python/2.0},%
+	{JavaScript, TypeScript, Node.js/4.6},%
+	{Python/3.8},%
 	{Front-end/3.2},%
 	{Bash + GNU coreutils/4.3},%
-	{C\#/3.7},%
-	{Java/4.8},%
+	{C\#/3.4},%
+	{Java/4.7},%
 	{Kotlin/4.4},%
-	{C/6},%
-	{C++/5.8}%
+	{C/5.9},%
+	{C++/5.6}%
 }
 
 \makeprofile
@@ -86,6 +85,7 @@
 
 \newcommand{\brand}[2]{\raisebox{-2pt}{\includegraphics[height=10pt]{#1}}\enspace#2\vspace{1pt}}
 
+\newcommand{\bolt}[0]{\brand{bolt.png}{Bolt}}
 \newcommand{\opencosmos}[0]{\brand{oc.png}{Open Cosmos}}
 \newcommand{\entrepreneurfirst}[0]{\brand{ef.png}{Entrepreneur First}}
 \newcommand{\eestirr}[0]{\brand{err.png}{Eesti Rahvusringhääling}}
@@ -94,7 +94,16 @@
 \newcommand{\lrgs}[0]{\brand{lrgs.png}{Lancaster Royal Grammar School}}
 
 \begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2018--2018}{%
+	\twentyitem{2019--}{%
+		Senior Data Engineer}{\bolt}{Building automation for huge machine-learning pipelines%
+		\par%
+		Automating container building, data extraction, model training, testing, and deployment; building pipelines which produce 100+ models, with high parallelism.%
+		\par%
+		Objectives: make re-training faster (from a week to a few hours), fault-tolerant, significantly cheaper, and user-friendly so that data-scientists can own their pipelines in production.%
+		\par%
+		Tools: AWS (EC2, S3, Sagemaker, Redshift, \ldots), Airflow, Python, Docker, Jenkins, Bash, TypeScript.%
+	}
+	\twentyitem{2018--2019}{%
 		Lead flight software engineer}{\opencosmos}{Designing the next-generation flight software (C/Kotlin), to be flown on hundreds of mass-produced spacecraft.%
 		\par%
 		Training others in the design and in associated computer-science and operating-systems theory, so that they can implement it and maintain it.%
@@ -107,38 +116,28 @@
 		Managing resource-allocation and acquisition across projects.%
 		\par%
 		Training/teaching the team:%
-			\iitem Algorithms \& data-structures%
-			\iitem Operating systems (schedulers, filesystems,  networking, \ldots)%
+			\iitem Algorithms, data-structures, and optimisation%
+			\iitem Operating systems (schedulers, filesystems, networking, \ldots)%
 			\iitem Concurrency (distributed/parallel/asynchronous styles)%
-			\iitem Object-orientated design patterns (gang-of-four)%
-			\iitem Functional programming basics (for SQL, redux, lodash, \ldots)%
-			\iitem POSIX/Linux%
-			\iitem Gitlab/DevOps%
+			\iitem Linux / POSIX%
 			\iitem Real-time (latency-constrained) programming%
-			\iitem Optimisation (data-structures, dynamic programming, \ldots)%
-		\par%
-		Helping the infrastructure/ops team to replace my original ``startup-grade'' infrastructure with a robust and resilient micro-service architecture, using tools including:%
-			\iitem Kubernetes%
-			\iitem RabbitMQ%
-			\iitem Redis%
 		\par%
 		Developing:%
 			\iitem A lightweight (low-RAM) flash filesystem%
 			\iitem Java/Swing application for managing satellite dev. kits%
-			\iitem Devicetree for our own in-house designed Linux boards%
+			\iitem Devicetrees for our own in-house Linux boards%
 	}
 	\twentyitem{2015--2016}{Software \& payload engineer}{\opencosmos}{%
 		Developing:%
 			\iitem Flight software (C / FreeRTOS / AVR32)%
-			\iitem Mission-control software (C)%
+			\iitem Mission-control software (C / Node.js)%
 			\iitem Radio control software (C++ / SDR)%
 			\iitem Radio modulator/demodulator DSP software (C)%
-			\iitem Cloud infrastructure (Docker / DigitalOcean)%
+			\iitem Cloud infrastructure (Docker)%
 			\iitem Machine-to-machine communications (ZeroMQ)%
 			\iitem Web app (AngularJS / TypeScript / Node.js / PostgreSQL)%
-			\iitem Mission simulator (Java / Maven / Gradle)%
-			\iitem Development kits (Das U-boot / Linux / systemd / coreutils)%
-			\iitem Test electronics (Kicad)%
+			\iitem Orbital mission simulator and designer (Java / Gradle)%
+			\iitem Development kits (Das U-boot / Linux / systemd / Kicad)%
 	}
 	\twentyitem{2015--2015}{Thundercloud Tech}{}{%
 		Short-lived startup while on Entrepreneur First.%
@@ -149,12 +148,10 @@
 		Invited onto Entrepreneur First cohort \#5, from where I saw the start of Open Cosmos, which I joined a few months later.%
 	}
 	\twentyitem{2014--2015}{Front-end developer}{\eestirr}{%
-		Development and maintenance of widgets such as the homepage schedule browser and the live-stream viewer.
-		\par%
-		Using HTML5, CSS3, JS, C\#, .NET MVC4.%
+		The usual culprits: HTML5, CSS3, JavaScript.  Also C\#, .NET MVC4, Entity Framework, MS SQL.%
 	}
 	\twentyitem{2012--2012}{Lab demonstrator}{\uomanc}{%
-		Teaching and supervising laboratory projects for BSc students, involving real-time tomographic imaging of mixing processes.%
+		Teaching and supervising laboratory projects for BSc Chemical Engineering students, involving real-time tomographic imaging of mixing processes.%
 	}
 	\twentyitem{2006--2011}{Head coach / coach / assistant coach}{\textit{Various squash clubs}}{}
 	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
@@ -170,12 +167,12 @@
 
 \setskills{%
 	{Sense of humour/4.9},%
-	{Piano/0.4},%
-	{Guitar/3.4},%
-	{Football/1.4},%
+	{Piano/0.2},%
+	{Guitar/4.0},%
+	{Ice-skating/1.0},%
 	{Music tech/2.0},%
-	{Super Hexagon/1.8},%
-	{Counter-strike/2.8},%
+	{Super Hexagon/1.2},%
+	{Counter-strike/2.3},%
 	{StarCraft II/3.5},%
 	{Squash/5.5}%
 }
@@ -267,19 +264,16 @@
 \setskillstitle{Want to learn}
 
 \setskills{%
-	{General relativity/2.8},%
 	{High-speed+density PCB design/3.5},%
 	{ASIC design \& development/1.5},%
-	{RF electronics/2.0},%
+	{Some form of dance/2.8},%
+	{VFX/4},%
+	{Illustration/3.0},%
 	{FPGA + VHDL development/3.5},%
-	{Some form of dance/1.8},%
-	{Advanced neural-net theory/2.5},%
-	{Elm/2},%
-	{React.js/5},%
-	{Newer CSS features/3.2},%
+	{React.js/4},%
 	{Eesti keel/4.2},%
 	{Golang/4.5},%
-	{Rust/5.5}%
+	{Rust/4.8}%
 }
 
 \makeprofile
@@ -288,7 +282,7 @@
 
 \begin{twenty} % Environment for a short list with no descriptions
 	\twentyitem{---}{References}{LinkedIn}{%
-		References are immediately available on my%
+		References are immediately available on my\ %
 			\href{%
 				https://www.linkedin.com/in/photonicist/%
 			}{%
@@ -351,7 +345,7 @@
 		Used by BitWarden project among others.%
 	}
 	\twentyitem{2015}{``kaiu''}{C++}{%
-		A collection of interacting asynchronous and concurrent experiments in C++.%
+		Self-learning project: A collection of interacting asynchronous and concurrent experiments in C++.%
 		\par%
 		Not used in production, nor should it as the heavy templated nature of this library means that compile times will explode massively.%
 		\par%
