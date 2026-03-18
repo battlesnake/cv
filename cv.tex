@@ -27,6 +27,8 @@
 \usepackage{graphicx}
 \graphicspath{{./img/}}
 
+\newcommand{\inlineimage}[1]{\includegraphics[height=10pt]{#1}}
+
 % Inline item within list
 \newcommand{\iitem}[0]{\newline\-\enspace$\blacktriangleright$\enspace}
 
@@ -62,21 +64,19 @@
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
 \setskills{%
-	{Presenting/3.9},%
-	{French/0.1},%
-	{Optics/1.7},%
-	{Analog electronics/1.0},%
-	{Digital electronics/2.2},%
-	{Embedded systems/4.8},%
-	{JavaScript, TypeScript, Node.js/4.6},%
-	{Python/3.8},%
-	{Front-end/3.2},%
-	{Bash + GNU coreutils/4.3},%
-	{C\#/3.4},%
-	{Java/4.7},%
-	{Kotlin/4.4},%
+	{Kotlin/2.4},%
+	{Golang/1.0},%
+	{JavaScript, TypeScript, Node.js/4.2},%
+	{C\#/2.4},%
+	{Java/3.7},%
+	{Embedded systems/4.9},%
+	{Digital electronics/3.5},%
+	{Analog electronics/1.5},%
+	{Docker/4.6},%
+	{Bash/4.3},%
+	{Python/4.4},%
 	{C/5.9},%
-	{C++/5.6}%
+	{C++/5.8}%
 }
 
 \makeprofile
@@ -85,59 +85,49 @@
 
 \newcommand{\brand}[2]{\raisebox{-2pt}{\includegraphics[height=10pt]{#1}}\enspace#2\vspace{1pt}}
 
+\newcommand{\lendurai}[0]{\brand{lendurai.png}{Lendurai}}
+\newcommand{\kanvas}[0]{\brand{kanvas.png}{Art Technologies}}
 \newcommand{\bolt}[0]{\brand{bolt.png}{Bolt}}
 \newcommand{\opencosmos}[0]{\brand{oc.png}{Open Cosmos}}
 \newcommand{\entrepreneurfirst}[0]{\brand{ef.png}{Entrepreneur First}}
 \newcommand{\eestirr}[0]{\brand{err.png}{Eesti Rahvusringhääling}}
+\newcommand{\tracerco}[0]{\brand{tracerco.png}{TracerCo}}
 \newcommand{\uomanc}[0]{\brand{uom.png}{University of Manchester}}
 \newcommand{\uolsd}[0]{\brand{uol.png}{University of Leeds}}
 \newcommand{\lrgs}[0]{\brand{lrgs.png}{Lancaster Royal Grammar School}}
 
 \begin{twenty} % Environment for a list with descriptions
-	\twentyitem{2019--}{%
-		Senior Data Engineer}{\bolt}{Building automation for huge machine-learning pipelines%
+	\twentyitem{2024--2026}{%
+		CTO, Co-founder}{\lendurai}{End-to-end FPV strike missions with terminal guidance%
 		\par%
-		Automating container building, data extraction, model training, testing, and deployment; building pipelines which produce 100+ models, with high parallelism.%
+		Most details confidential.  Designed initiation board used for every live-fire FPV exercise in Estonia throughout 2024.%
 		\par%
-		Objectives: make re-training faster (from a week to a few hours), fault-tolerant, significantly cheaper, and user-friendly so that data-scientists can own their pipelines in production.%
+		C++, ARM64 assembly, i.MX8, Docker, Qemu, OpenCV, PX4, MAVLink, LoRA, Bash, Slack, Github, \ldots%
+	}
+	\twentyitem{2023--2023}{%
+		Occasional merc}{\kanvas}{Kanvas.ai provides fractional investment in fine art, both via traditional means and also via tokenisation on the Tezos blockchain.%
 		\par%
-		Tools: AWS (EC2, S3, Sagemaker, Redshift, \ldots), Airflow, Python, Docker, Jenkins, Bash, TypeScript.%
+		Next.js, AWS, Tezos%
+	}
+	\twentyitem{2019--2024}{%
+		Senior Data Engineer}{\bolt}{Delivering new operations/tools/infra to scale from single-digit models to four-digit, quarterly releases to daily/weekly releases, improving performance and costs, ...%
+		\par%
+		AWS (EC2+S3+Sagemaker+Redshift), Airflow, Python, Docker, Jenkins, Bash, TypeScript, \ldots%
 	}
 	\twentyitem{2018--2019}{%
-		Lead flight software engineer}{\opencosmos}{Designing the next-generation flight software (C/Kotlin), to be flown on hundreds of mass-produced spacecraft.%
+		Lead flight software engineer}{\opencosmos}{Designing the next-generation flight software (C/Kotlin).%
 		\par%
-		Training others in the design and in associated computer-science and operating-systems theory, so that they can implement it and maintain it.%
+		C, C++, Kotlin, devicetree, Linux kernel, Das U-boot, Kicad, Java/Swing, \ldots%
 	}
 	\twentyitem{2017--2018}{Head of software}{\opencosmos}{%
 		Building and growing a team of skilled software engineers, aerospace engineers \& physicists.%
 		\par%
-		Headhunting, approaching, interviewing, testing --- the whole lot.%
-		\par%
-		Managing resource-allocation and acquisition across projects.%
-		\par%
-		Training/teaching the team:%
-			\iitem Algorithms, data-structures, and optimisation%
-			\iitem Operating systems (schedulers, filesystems, networking, \ldots)%
-			\iitem Concurrency (distributed/parallel/asynchronous styles)%
-			\iitem Linux / POSIX%
-			\iitem Real-time (latency-constrained) programming%
-		\par%
-		Developing:%
-			\iitem A lightweight (low-RAM) flash filesystem%
-			\iitem Java/Swing application for managing satellite dev. kits%
-			\iitem Devicetrees for our own in-house Linux boards%
+		HipChat, Trello, Gitlab, \ldots%
 	}
 	\twentyitem{2015--2016}{Software \& payload engineer}{\opencosmos}{%
-		Developing:%
-			\iitem Flight software (C / FreeRTOS / AVR32)%
-			\iitem Mission-control software (C / Node.js)%
-			\iitem Radio control software (C++ / SDR)%
-			\iitem Radio modulator/demodulator DSP software (C)%
-			\iitem Cloud infrastructure (Docker)%
-			\iitem Machine-to-machine communications (ZeroMQ)%
-			\iitem Web app (AngularJS / TypeScript / Node.js / PostgreSQL)%
-			\iitem Orbital mission simulator and designer (Java / Gradle)%
-			\iitem Development kits (Das U-boot / Linux / systemd / Kicad)%
+		Delivered flight-software for our first satellite, foundations for mission-control software, ground-segment radio software, ground-station networking, tracking, \ldots%
+		\par%
+		C, FreeRTOS, AVR32, Node.js, Ettus USRP SDRs, Docker, ZeroMQ, Typescript, Angular, Postgres, Java, Gradle, Das U-boot, Linux kernel, systemd, Kicad
 	}
 	\twentyitem{2015--2015}{Thundercloud Tech}{}{%
 		Short-lived startup while on Entrepreneur First.%
@@ -153,6 +143,9 @@
 	\twentyitem{2012--2012}{Lab demonstrator}{\uomanc}{%
 		Teaching and supervising laboratory projects for BSc Chemical Engineering students, involving real-time tomographic imaging of mixing processes.%
 	}
+	\twentyitem{2011--2011}{TracerCo}{\tracerco}{%
+		\inlineimage{radioactive.png} , \inlineimage{explosive.png} , and MODBUS.%
+	}
 	\twentyitem{2006--2011}{Head coach / coach / assistant coach}{\textit{Various squash clubs}}{}
 	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
@@ -167,13 +160,14 @@
 
 \setskills{%
 	{Sense of humour/4.9},%
-	{Piano/0.2},%
+	{Piano/0.1},%
+	{Curling/0.1},%
 	{Guitar/4.0},%
 	{Ice-skating/1.0},%
-	{Music tech/2.0},%
-	{Super Hexagon/1.2},%
+	{Music tech/1.4},%
+	{Beat Saber/4.2},%
 	{Counter-strike/2.3},%
-	{StarCraft II/3.5},%
+	{StarCraft II/4.5},%
 	{Squash/5.5}%
 }
 
@@ -190,8 +184,8 @@
 		Andrew Ng's course on Coursera, 100\% score.%
 	}
 	\twentyitem{2011--2013}{PhD Chem. Eng. \& Analytical Sci.}{\uomanc}{%
-		I taught a lab project involving real-time tomographic imaging of mixing processes.%
-		I left the PhD during 2nd year, as rate of progress was too slow for my liking.%
+		I taught a lab project involving real-time tomographic imaging of mixing processes.  %
+		I left the PhD during 2nd year.  %
 		\par%
 		I took several extra taught courses including:%
 			\iitem COMSOL Multiphysics%
@@ -265,15 +259,14 @@
 
 \setskills{%
 	{High-speed+density PCB design/3.5},%
-	{ASIC design \& development/1.5},%
-	{Some form of dance/2.8},%
-	{VFX/4},%
-	{Illustration/3.0},%
-	{FPGA + VHDL development/3.5},%
-	{React.js/4},%
+	{ASIC design \& development/2.5},%
+	{Some form of dance/0.4},%
+	{VFX/3},%
+	{Illustration/1.0},%
+	{FPGA + VHDL development/3.2},%
 	{Eesti keel/4.2},%
-	{Golang/4.5},%
-	{Rust/4.8}%
+	{Golang/3.7},%
+	{Rust/1.4}%
 }
 
 \makeprofile
